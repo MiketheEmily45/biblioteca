@@ -1,0 +1,61 @@
+#include <iostream>
+#include <forward_list>
+
+using namespace std;
+
+int main() {
+    forward_list<int> lista;
+    int opcao, valor;
+
+    do {
+        cout << "Menu de Operações com Forward List:" << endl;
+        cout << "1. Adicionar elemento no início (push_front)" << endl;
+        cout << "2. Remover elemento do início (pop_front)" << endl;
+        cout << "3. Ver o primeiro elemento (front)" << endl;
+        cout << "4. Verificar se a lista está vazia (empty)" << endl;
+        cout << "5. Finalizar" << endl;
+        cout << "Escolha uma opção: ";
+        cin >> opcao;
+
+        switch (opcao) {
+            case 1:
+                cout << "Digite um valor para adicionar à lista: ";
+                cin >> valor;
+                lista.push_front(valor);
+                cout << valor << " adicionado à lista." << endl;
+                break;
+            case 2:
+                if (!lista.empty()) {
+                    cout << lista.front() << " removido da lista." << endl;
+                    lista.pop_front();
+                } else {
+                    cout << "A lista está vazia, não é possível remover elementos." << endl;
+                }
+                break;
+            case 3:
+                if (!lista.empty()) {
+                    cout << "O primeiro elemento da lista é: " << lista.front() << endl;
+                } else {
+                    cout << "A lista está vazia." << endl;
+                }
+                break;
+            case 4:
+                if (lista.empty()) {
+                    cout << "A lista está vazia." << endl;
+                } else {
+                    cout << "A lista não está vazia." << endl;
+                }
+                break;
+            case 5:
+                cout << "Finalizando..." << endl;
+                break;
+            default:
+                cout << "Opção inválida, tente novamente!" << endl;
+        }
+
+        cout << endl;
+
+    } while (opcao != 5);
+
+    return 0;
+}
